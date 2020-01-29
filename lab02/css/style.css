@@ -1,0 +1,28 @@
+body, h1, p {
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    float:left;
+    float:right;
+}
+
+nav a {  
+    transition-duration: 1s;    
+}
+
+nav a:hover { 
+    color: darkcyan; 
+}
+
+main {
+    box-sizing: content-box;
+    width: 85%;
+    padding-left: 10%;
+    padding-right: 10%;    
+    float:left;
+    float:right;
+}
