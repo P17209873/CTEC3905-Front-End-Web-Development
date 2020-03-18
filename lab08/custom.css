@@ -1,0 +1,49 @@
+body {
+  animation-name: changeBackground;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+}
+
+.moveme {
+  position: fixed;
+  top:auto;
+  left: auto;
+  box-sizing: border-box;
+  width: 300px;
+  height: 300px;
+  padding: 0 1em;
+  background-color: blue;
+  animation-name: movingBox;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes movingBox {
+  0%   { background-color:rgb(255, 0, 0); left: 0px; top: 0px; }
+  25%  { background-color:rgb(255, 165, 0); left: calc(100% - 300px); top: 0px; }
+  50%  { background-color:rgb(64, 224, 208); left: calc(100% - 300px); top: calc(100% - 300px); border-radius: 50%; }
+  75%  { background-color:rgb(147, 112, 216); left: 0; top: calc(100% - 300px); }
+  100% { background-color:rgb(255, 0, 0); left: 0px; top: 0px; }
+}
+
+@keyframes changeBackground {
+  0%   { background-color:rgb(225, 225, 225); }
+  50%  { background-color:rgb(25, 25, 25); }
+  100% { background-color:rgb(255, 255, 255); }
+}
+
+a:link,
+a:visited {
+  display: block;
+  text-align: center;
+  line-height: 300px;
+  text-decoration: none;
+  color: white;
+}
+a:hover {
+  color: pink;
+}
