@@ -1,0 +1,61 @@
+body {
+  animation-name: backgroundChange;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+.moveme {
+  position: absolute;
+  /* comment out 'top' and 'left' and see what happens */
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: 200px;
+  height: 200px;
+  padding: 0 1em;
+  background-color: red;
+  animation-name: movingBox;
+  animation-duration: 5s;
+  animation-iteration-count: 1; /* infinite */
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+/*
+  good:
+    'transform' uses a RenderLayer so the GPU calculates the position
+    works for position (translate), scale, rotation, opacity
+  bad:
+    'position' triggers 'layout' so the CPU must calculate every frame,
+    so *never* use for mobiles or with "animation-iteration: infinite;"
+*/
+@keyframes movingBox {
+  0%   { background-color:rgb(255, 0, 0); left: 0px; top: 0px; }
+  25%  { background-color:rgb(255, 165, 0); left: calc(100% - 200px); top: 0px; }
+  50%  { background-color:rgb(64, 224, 208); left: calc(100% - 200px); top: calc(100% - 200px); border-radius: 50%; }
+  75%  { background-color:rgb(147, 112, 216); left: 0; top: calc(100% - 200px); }
+  100% { background-color:rgb(255, 0, 0); left: 0px; top: 0px; }
+}
+
+@keyframes backgroundChange {
+  /* 0%   { opacity: 1; }
+  50%  { opacity: 0; }
+  100% { opacity: 1; } */
+  0%   { background-color:rgb(225, 225, 225); }
+  50%  { background-color:rgb(25, 25, 25); }
+  100% { background-color:rgb(255, 255, 255); }
+}
+
+a:link,
+a:visited {
+  display: block;
+  color: #fff;
+  text-align: center;
+  line-height: 200px;
+  text-decoration: none;
+}
+a:hover {
+  color: #333;
+}
